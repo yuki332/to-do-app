@@ -1,0 +1,50 @@
+
+  /* CSS rules for your element */
+  .todo {
+  padding: 10px;
+}
+
+  paper-checkbox {
+    float: right;
+    margin: 2vh 2vw;
+}
+
+  paper-button {
+    background: #ccc;
+  }
+paper-toolbar {
+  background: #fff;
+}
+paper-material paper-fab.edit, paper-material paper-fab.done {
+    position: absolute;
+    right: 0;
+    background: #4DD0E1;
+  }
+
+  paper-material paper-fab.done {
+    background: green;
+  }
+
+  .info {
+    font-style: italic;
+    font-size: 14px;
+    color: #696969;
+  padding-top: 0;
+  padding-bottom: 0;
+  }
+
+  paper-material {
+  background-color: #fff;
+  max-width: 640px;
+  width: 90%;
+  margin: 25px auto;
+  position: relative;
+}
+
+  .info span {
+    margin-left: 5px;
+  }
+
+  paper-input {
+  margin: 0 2vw;
+}

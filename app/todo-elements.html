@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="import" href="../app/elements/elements.html">
+
+<!-- 	<link href="../bower_components/iron-input/iron-input.html" rel="import"> -->
+<!-- 	<link href="../bower_components/paper-button/paper-button.html" rel="import"> -->
+</head>
+
+<dom-module id="todo-element" attributes="task user rid">
+
+  <template>
+		<link rel="stylesheet" href="../app/elementStyle.css"/>
+    <!-- local DOM for your element -->
+<paper-material>
+
+<paper-checkbox></paper-checkbox>
+<paper-item id="example" hidden="{{editing}}"></paper-item>
+<paper-input id="edit" hidden="{{!editing}}" value="{{task}}"></paper-input>
+<paper-item class="info">Created by: <span>{{ user }}</span></paper-item>
+<paper-item class="info">{{ time }}</paper-item>
+<paper-fab hidden={{editing}}  icon="icons:create" on-tap="doEdit" class="edit" mini></paper-fab>
+<paper-fab hidden={{!editing}} icon="icons:done"   on-tap="doEdit" class="done" mini></paper-fab>
+
+</paper-material>
+    <!-- <paper-material class="todo" elevation="1">
+	    <paper-checkbox checked="{{completed}}"></paper-checkbox>
+	    <paper-fab hidden={{editing}}  icon="icons:create" on-tap="doEdit" class="edit" mini></paper-fab>
+	    <paper-fab hidden={{!editing}} icon="icons:done"   on-tap="doEdit" class="done" mini></paper-fab>
+	    <paper-item hidden="{{editing}}" id="task">{{task}}</paper-item>
+	    <paper-input id="edit" hidden="{{!editing}}" value="{{task}}"></paper-input>
+	    <paper-item class="info">Created by: <span>{{ user }}</span></paper-item>
+	    <paper-item class="info">{{ time }}</paper-item>
+    </paper-material> <!-- data bindings in local DOM -->
+
+  </template>
+</dom-module>
+
+<script>
+  // element registration
+  Polymer({
+    is: "todo-element",
+    // add properties and methods on the element's prototype
+    properties: {
+    	// declare properties for the element's public API
+		user: {
+			type: String,
+			value: ""
+		},
+		task: {
+        	type: String,
+			value: "Hello!"
+    	},
+    	rid: {
+	    	type: Number,
+	    	value: -1
+    	},
+    	time: {
+	    	type: String,
+	    	value: new Date().toLocaleString()
+	    },
+		// completed: {
+	  //   	type: Boolean,
+		// 	value: false,
+		// 	observer:'compChanged'
+    // 	},
+    	editing: {
+	    	type: Boolean,
+	    	value: false
+    	}
+    },
+    compChanged: function(e){
+	    if(e){ this.fire('complete',this); }
+    },
+    doEdit: function(e){
+    	this.editing=!this.editing;
+			var eTsk = this.task;
+    	if (!this.editing){ this.task=eTsk; }
+	},
+	ready: function(e){
+	}
+  });
+</script>

@@ -1,0 +1,82 @@
+.list {
+		padding: 0;
+/* 		border-right: 1px solid #ccc; */
+	}
+
+	.list paper-item {
+		min-height: 80px;
+		border-bottom: 1px solid #dedede;
+		background-color: #fafafa;
+	}
+
+	#todoEntry {
+		margin: 0;
+		width: 100%;
+		max-width: none;
+		border-bottom: 1px solid #ccc;
+	}
+
+	paper-input, paper-textarea {
+		margin: 0 4vw;
+		padding: 0;
+	}
+
+	paper-material {
+		background-color: #fff;
+		max-width: 640px;
+		width: 95%;
+		margin: 25px auto;
+		position: relative;
+	}
+
+	#todos {
+		overflow-y: scroll;
+		height: 70vh;
+	}
+	#todos {
+		overflow-y: scroll;
+	}
+
+	paper-fab {
+	    position: relative;;
+	    background: #fff;
+	    bottom: 2vh;
+	    right: 2vw;
+    }
+
+	.main-panel {
+		background-color: #eee;
+		height: 10vh;
+		overflow-y: hidden;
+	}
+
+	.task-empty paper-item {
+		text-align: center;
+		padding: 25px;
+		color: #6f6f6f;
+	}
+	paper-toolbar {
+		background:#D32F2F;
+	}
+
+	#made-with {
+		width:100%;
+		margin:0;
+		position: fixed;
+		bottom: 0;
+		text-align: center;
+	}
+
+	.dialog {
+		width: 80%;
+	padding: 10px;
+	padding-bottom: 20px;
+}
+.submit{
+	background: #ff4081;
+}
+paper-toolbar paper-fab {
+	position: relative;
+	bottom: 0vh;
+	background:#fff;
+}

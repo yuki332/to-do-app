@@ -1,0 +1,11 @@
+{
+  "version": "1.0.0",
+  "name": "PolymerProject",
+  "private": true,
+  "devDependencies": {
+    "express": "~4.12.4"
+  },
+  "dependencies": {
+    "firebase": "^2.4.2"
+  }
+}
