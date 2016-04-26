@@ -70,22 +70,23 @@
         // },
 
         submitTask: function(){
-        if(!this.$.taskInput.value.length){
-        err.open();
-        return;
-        }
-        var tsk = this.textTask;
-        var note = this.textNote;
-        if(tsk==""){
-        err.open();
-        return;
-        }
-        if(note==""){
-        note="";
-        return;
-        }
-        addtask();
-        added.open();
+            if(!this.$.taskInput.value.length){
+                err.open();
+                return;
+            }
+            var tsk = this.textTask;
+            var note = this.textNote;
+            if(tsk==""){
+                err.open();
+                return;
+            }
+            if(note==""){
+                note="";
+                return;
+            }
+            addtask();
+            added.open();
+            return;
         }
     });
 </script>

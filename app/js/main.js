@@ -1,52 +1,41 @@
-//This is where the JS magig happens
+var taskListRef = new Firebase("https://dgm-todo-app.firebaseio.com");
 
-  // Add Ref to Firebase
-var messagesRef = new Firebase("https://mydgmchat.firebaseio.com");
-  // Register the Dom Elaments with jQuery
-  var messageField = $('#messageInput');
-  var nameField = $('#nameInput');
-  var messageList = $('#example-messages');
+var taskField = $('#taskInput');
+var noteField = $('#noteInput');
+var dueField = $('#dateInput');
+var taskList = $('#example');
 
-  // Listem for Enter press
-  messageField.keypress(function (e) {
-    if (e.keyCode == 13) {
-      console.log("Pressing Enter")
-      //save data to firebase and clear the message field
+function addtask(){
+  var task = taskField.val();
+      var note = noteField.val();
+      var due = dueField.val();
 
-      var name = nameField.val();
-      var message = messageField.val();
+      //console.log(task, note, due);
+    taskListRef.push({task: task, note: note, due: due});
+    dueField.val('');
+    noteField.val('');
+    taskField.val('');
+}
 
-      messagesRef.push({name: name,text:message});
-      messageField.val('');
+taskListRef.on("child_added", function(snapshot, prevChildkey){
 
-    }
-  });
+  var newTask = snapshot.val();
 
-messagesRef.on("child_added", function(snapshot, prevChildKey) {
-//get the data
-  var newMessage = snapshot.val();
+  var taskOutput = newTask.task;
+  var noteOutput = newTask.note;
+  var dueOutput = newTask.due;
 
-  var username = newMessage.name;
-  var message = newMessage.text;
-  console.log(newMessage);
+  console.log(taskOutput, noteOutput, dueOutput);
 
-  // Create Elements for Message (<li> for messageElement and <strong class='example-chat-username'></strong> for nameElement)
-  var messageElement = $("<li>");
-  var nameElement = $("<strong class='example-chat-username'></strong>")
-
-  nameElement.text(username);
-  messageElement.text(message).prepend(nameElement);
-
-  messageList.append(messageElement);
-  messageList[0].scrollTop = messageList[0].scrollHeight;
-
+  // var taskElement = $("<paper-material></paper-material>");
+  // var noteElement = $("<i></i>");
+  // // var dueElement = $("<strong></strong>");
+  // //
+  // // dueElement.text(dueOutput);
+  // noteElement.text(noteOutput);
+  // taskElement.text(taskOutput).prepend(noteElement);
+  // // taskElement.prepend(dueElement);
+  //
+  // taskList.append(taskOutput);
+  // // taskList[0].scrollTop = taskList[0].scrollHeight;
 });
-//});
-
-  // Add a callback that is triggered for each chat message.
-
-
-
-      // Add the message to messageList
-
-      //Scroll to bottom of MessageList
