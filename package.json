@@ -3,6 +3,7 @@
   "name": "polymer_project",
   "private": true,
   "devDependencies": {
+    "browser-sync": "^2.12.5",
     "express": "~4.12.4",
     "gulp": "^3.9.1",
     "gulp-csso": "^2.0.0",

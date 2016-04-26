@@ -4,8 +4,22 @@ var jshint = require('jshint');
 var jshintStylish = require('jshint-stylish');
 var minifyHtml = require('gulp-minify-html');
 var csso = require('gulp-csso');
+var browserSync = require("browser-sync");
 
 gulp.task('default', ['js', 'html', 'css']);
+
+gulp.task("brows", function () {
+    browserSync({
+        server: {
+            baseDir: "./app/" // ルートとなるディレクトリを指定
+        }
+    });
+
+    // srcフォルダ以下のファイルを監視
+    gulp.watch("app/src/**", function() {
+        browserSync.reload();   // ファイルに変更があれば同期しているブラウザをリロード
+    });
+});
 
 gulp.task("js", function(){
     gulp.src([
