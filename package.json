@@ -1,11 +1,33 @@
 {
   "version": "1.0.0",
-  "name": "PolymerProject",
+  "name": "polymer_project",
   "private": true,
   "devDependencies": {
-    "express": "~4.12.4"
+    "express": "~4.12.4",
+    "gulp": "^3.9.1",
+    "gulp-csso": "^2.0.0",
+    "gulp-jshint": "^2.0.0",
+    "gulp-minify-html": "^1.0.6",
+    "gulp-uglify": "^1.5.3",
+    "jshint": "^2.9.2",
+    "jshint-stylish": "^2.1.0"
   },
   "dependencies": {
     "firebase": "^2.4.2"
-  }
+  },
+  "description": "DGM3780 Final Project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yuki332/to-do-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yuki332/to-do-app/issues"
+  },
+  "homepage": "https://github.com/yuki332/to-do-app#readme"
 }

@@ -1,0 +1,46 @@
+<link rel=import href=../../bower_components/polymer/polymer.html><link rel=import href=../elements/elements.html><dom-module id=to-do-app><template><style is=custom-style>
+            #err {
+              --paper-toast-background-color: red;
+              --paper-toast-color: white;
+            }
+        </style><link rel=stylesheet href=../style.css><paper-header-panel><section onclick=clickHandler(event)><paper-toolbar><span class=title>Tasks</span><paper-fab icon=icons:add data-dialog=dialog></paper-fab></paper-toolbar><paper-dialog id=dialog class=dialog><h2>Add New Task</h2><paper-input id=taskInput label=Task></paper-input><paper-textarea id=noteInput label=Note></paper-textarea><paper-input id=dateInput label=Due></paper-input><paper-button class=submit raised on-tap=submitTask><iron-icon icon=done></iron-icon>Submit</paper-button><paper-button raised dialog-dismiss><iron-icon icon=clear></iron-icon>Cancel</paper-button></paper-dialog></section><paper-toast id=added text="Added you task"></paper-toast><paper-toast id=err text="Enter your task"></paper-toast><ul id=example></ul><div id=todos><template id=tasks is=dom-repeat items={{todo}}><todo-element user={{item.user}} task={{item.task}} rid={{item.rid}}></todo-element></template></div><app></app></paper-header-panel></template></dom-module><script>
+    Polymer({
+        is: "to-do-app",
+
+        properties: {
+            editing: {
+            type: Boolean,
+            value: false
+        },
+        todo: {
+            type: Array,
+                value: [{user:"nonononononon",task:"Make a Polymer app!",rid:0}, {user:"Justin",task:"Drink some scotch.io",rid:1}, {user:"Tomomi",task:"Think of task.",rid:2},
+                    {user:"arai",task:"Think of task.",rid:3}
+                ]
+            }
+        },
+        //
+        // show_hide: function(){
+        //   this.editing=!this.editing;
+        // },
+
+        submitTask: function(){
+            if(!this.$.taskInput.value.length){
+                err.open();
+                return;
+            }
+            var tsk = this.textTask;
+            var note = this.textNote;
+            if(tsk==""){
+                err.open();
+                return;
+            }
+            if(note==""){
+                note="";
+                return;
+            }
+            addtask();
+            added.open();
+        }
+    });
+</script>

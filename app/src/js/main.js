@@ -11,7 +11,7 @@ function addtask(){
       var due = dueField.val();
 
       //console.log(task, note, due);
-    taskListRef.push({task: task, note: note, due: due})
+    taskListRef.push({task: task, note: note, due: due});
     dueField.val('');
     noteField.val('');
     taskField.val('');

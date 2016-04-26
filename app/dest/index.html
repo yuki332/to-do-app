@@ -1,0 +1,18 @@
+<head><script src=bower_components/webcomponentsjs/webcomponents-lite.min.js></script><script src=https://cdn.firebase.com/js/client/2.2.1/firebase.js></script><script src=https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js></script><link rel=import href=app/elements/app.html><link rel=import href=app/elements/elements.html></head><body><to-do-app></to-do-app><script src=app/javaScript/main.js></script><script>
+function clickHandler(e) {
+  var button = e.target;
+  while (!button.hasAttribute('data-dialog') && button !== document.body) {
+    button = button.parentElement;
+  }
+
+  if (!button.hasAttribute('data-dialog')) {
+    return;
+  }
+
+  var id = button.getAttribute('data-dialog');
+  var dialog = document.getElementById(id);
+  if (dialog) {
+    dialog.open();
+  }
+}
+</script></body>
